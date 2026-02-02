@@ -3,6 +3,11 @@
     "context": "..",
     "dockerfile": "Dockerfile"
   },
+  "remoteUser": "vscode",
+  "containerEnv": {
+    "SHELL": "/usr/bin/zsh",
+    "DEVCONTAINER": "1"
+  },
   "features": {
     "ghcr.io/devcontainers/features/common-utils:2": {
       "configureZshAsDefaultShell": true
