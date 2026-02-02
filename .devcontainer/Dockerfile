@@ -12,6 +12,7 @@ RUN apt-get update \
     ipset \
     iproute2 \
     dnsutils \
+    pip \
  && rm -rf /var/lib/apt/lists/*
 COPY --from=jdxcode/mise /usr/local/bin/mise /usr/local/bin/
 # Copy your setup script INTO the image (stable location)
