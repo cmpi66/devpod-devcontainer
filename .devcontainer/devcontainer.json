@@ -9,7 +9,5 @@
     },
     "ghcr.io/w3cj/devcontainer-features/firewall:latest": {}
   },
-  "workspaceMount": "source=${localEnv:HOME}/.local/.src/project-1,target=/workspace,type=bind",
-  "workspaceFolder": "/workspace",
   "postCreateCommand": "/usr/local/bin/devcontainer-setup"
 }
