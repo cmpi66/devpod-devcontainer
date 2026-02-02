@@ -9,7 +9,10 @@
     },
     "ghcr.io/w3cj/devcontainer-features/firewall:latest": {}
   },
+ "containerEnv": {
+    "ENV_REPO_NAME": "devpod-devcontainer"
+  },
   "workspaceMount": "source=${localEnv:HOME}/.local/.src/project-1,target=/workspace,type=bind",
   "workspaceFolder": "/workspace",
-  "postCreateCommand": "scripts/setup"
+  "postCreateCommand": "bash -lc '/workspaces/$ENV_REPO_NAME/scripts/setup'"
 }
