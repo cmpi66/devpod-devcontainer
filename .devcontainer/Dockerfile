@@ -17,8 +17,6 @@ RUN apt-get update \
     eza \
  && rm -rf /var/lib/apt/lists/*
 COPY --from=jdxcode/mise /usr/local/bin/mise /usr/local/bin/
-# starship (non-interactive)
-RUN curl -sS https://starship.rs/install.sh | sh -s -- -y
 RUN mkdir -p /etc/zsh && \
     echo 'export ZDOTDIR="$HOME/.config/zsh"' > /etc/zsh/zshenv
 # Copy your setup script INTO the image (stable location)
