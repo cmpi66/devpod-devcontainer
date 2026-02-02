@@ -13,8 +13,13 @@ RUN apt-get update \
     iproute2 \
     dnsutils \
     pip \
+    zoxide \
+    eza \
  && rm -rf /var/lib/apt/lists/*
 COPY --from=jdxcode/mise /usr/local/bin/mise /usr/local/bin/
+CMD curl -sS https://starship.rs/install.sh | sh
+RUN mkdir -p /etc/zsh && \
+    echo 'export ZDOTDIR="$HOME/.config/zsh"' > /etc/zsh/zshenv
 # Copy your setup script INTO the image (stable location)
 COPY scripts/setup /usr/local/bin/devcontainer-setup
 RUN chmod +x /usr/local/bin/devcontainer-setup
