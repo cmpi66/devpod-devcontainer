@@ -1,11 +1,11 @@
 [tools]
 bat = "latest"
-fzf = "latest"
 lsd = "latest"
 ripgrep = "latest"
 node = "25"
 python = "3.12"
-go = "1.22"
+go = "1.25"
 lua = "latest"
 neovim = "0.11.5"
+pip = "latest"
 
