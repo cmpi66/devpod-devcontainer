@@ -6,6 +6,7 @@
   "remoteUser": "vscode",
   "containerEnv": {
     "SHELL": "/usr/bin/zsh",
+    "GITHUB_TOKEN": "${localEnv:GITHUB_TOKEN}",
     "DEVCONTAINER": "1"
   },
   "features": {
