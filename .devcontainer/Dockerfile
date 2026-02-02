@@ -14,5 +14,8 @@ RUN apt-get update \
     dnsutils \
  && rm -rf /var/lib/apt/lists/*
 COPY --from=jdxcode/mise /usr/local/bin/mise /usr/local/bin/
+# Copy your setup script INTO the image (stable location)
+COPY scripts/setup /usr/local/bin/devcontainer-setup
+RUN chmod +x /usr/local/bin/devcontainer-setup
 RUN echo 'eval "$(mise activate bash)"' >> /home/vscode/.bashrc \
  && echo 'eval "$(mise activate zsh)"'  >> /home/vscode/.zshrc

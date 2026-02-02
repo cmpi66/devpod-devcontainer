@@ -11,5 +11,5 @@
   },
   "workspaceMount": "source=${localEnv:HOME}/.local/.src/project-1,target=/workspace,type=bind",
   "workspaceFolder": "/workspace",
-  "postCreateCommand": "/workspaces/scripts/setup"
+  "postCreateCommand": "/usr/local/bin/devcontainer-setup"
 }
