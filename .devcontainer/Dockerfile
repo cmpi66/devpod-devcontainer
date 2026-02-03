@@ -17,8 +17,12 @@ COPY --from=jdxcode/mise /usr/local/bin/mise /usr/local/bin/
 RUN mkdir -p /etc/zsh \
  && printf '%s\n' 'export ZDOTDIR="$HOME/.config/zsh"' > /etc/zsh/zshenv
 
-RUN mkdir -p /home/vscode/.cache \
- && chown -R vscode:vscode /home/vscode/.cache
+# RUN mkdir -p /home/vscode/.cache \
+#  && chown -R vscode:vscode /home/vscode/.cache
+ # Go workspace + caches
+RUN mkdir -p /go/pkg/mod /home/vscode/.cache/go-build \
+ && chown -R vscode:vscode /go /home/vscode/.cache
+
 
 COPY scripts/setup /usr/local/bin/devcontainer-setup
 RUN chmod +x /usr/local/bin/devcontainer-setup
