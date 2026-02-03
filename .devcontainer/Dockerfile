@@ -17,8 +17,8 @@ COPY --from=jdxcode/mise /usr/local/bin/mise /usr/local/bin/
 RUN mkdir -p /etc/zsh \
  && printf '%s\n' 'export ZDOTDIR="$HOME/.config/zsh"' > /etc/zsh/zshenv
 
+COPY scripts/setup /usr/local/bin/devcontainer-setup
+RUN chmod +x /usr/local/bin/devcontainer-setup
 RUN echo 'eval "$(mise activate bash)"' >> /home/vscode/.bashrc \
  && echo 'eval "$(mise activate zsh)"'  >> /home/vscode/.zshrc
 
-COPY scripts/setup /usr/local/bin/devcontainer-setup
-RUN chmod +x /usr/local/bin/devcontainer-setup
