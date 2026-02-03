@@ -17,13 +17,8 @@ COPY --from=jdxcode/mise /usr/local/bin/mise /usr/local/bin/
 RUN mkdir -p /etc/zsh \
  && printf '%s\n' 'export ZDOTDIR="$HOME/.config/zsh"' > /etc/zsh/zshenv
 
-# Global mise activation (no user dotfile mutation)
-RUN mkdir -p /etc/profile.d \
- && printf '%s\n' 'eval "$(mise activate bash)"' > /etc/profile.d/mise.sh \
- && chmod 0644 /etc/profile.d/mise.sh
-
-# Zsh also reads /etc/zsh/zshrc; ensure mise is there too (safe & explicit)
-RUN printf '%s\n' 'eval "$(mise activate zsh)"' >> /etc/zsh/zshrc
+RUN echo 'eval "$(mise activate bash)"' >> /home/vscode/.bashrc \
+ && echo 'eval "$(mise activate zsh)"'  >> /home/vscode/.zshrc
 
 COPY scripts/setup /usr/local/bin/devcontainer-setup
 RUN chmod +x /usr/local/bin/devcontainer-setup
