@@ -1,6 +1,8 @@
 {
   "build": { "context": "..", "dockerfile": "Dockerfile" },
   "remoteUser": "vscode",
+  "containerUser": "vscode",
+  "updateRemoteUserUID": true
 
   "containerEnv": {
     "SHELL": "/usr/bin/zsh",
