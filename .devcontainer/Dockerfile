@@ -34,15 +34,22 @@ RUN mkdir -p /etc/zsh \
 # RUN mkdir -p /home/vscode/.cache \
 #  && chown -R vscode:vscode /home/vscode/.cache
  # Go workspace + caches
-RUN mkdir -p /go/pkg/mod /home/vscode/.cache/go-build \
- && chown -R vscode:vscode /go /home/vscode/.cache
+# RUN mkdir -p /go/pkg/mod /home/vscode/.cache/go-build \
+#  && chown -R vscode:vscode /go /home/vscode/.cache
 
 # Ensure mise volume mountpoint ownership
 # RUN mkdir -p /home/vscode/.local/share/mise \
 #  && chown -R vscode:vscode /home/vscode/.local/share/mise
  
- RUN mkdir -p /home/vscode/.local/share \
- && chown -R vscode:vscode /home/vscode/.local/share
+ # RUN mkdir -p /home/vscode/.local/share \
+ # && chown -R vscode:vscode /home/vscode/.local/share
+
+RUN mkdir -p \
+    /home/vscode/.cache \
+    /home/vscode/.local/state \
+    /home/vscode/.local/share \
+    /home/vscode/.config \
+ && chown -R vscode:vscode /home/vscode/.cache /home/vscode/.local /home/vscode/.config
 
 
 COPY scripts/setup /usr/local/bin/devcontainer-setup
