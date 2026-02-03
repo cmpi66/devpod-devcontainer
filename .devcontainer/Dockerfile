@@ -21,6 +21,8 @@ RUN mkdir -p /etc/zsh \
 RUN mkdir -p /etc/profile.d \
  && printf '%s\n' 'eval "$(mise activate bash)"' > /etc/profile.d/mise.sh \
  && chmod 0644 /etc/profile.d/mise.sh
+ RUN mkdir -p /home/vscode/.local/state \
+ && chown -R vscode:vscode /home/vscode/.local
 
 # Zsh also reads /etc/zsh/zshrc; ensure mise is there too (safe & explicit)
 RUN printf '%s\n' 'eval "$(mise activate zsh)"' >> /etc/zsh/zshrc
