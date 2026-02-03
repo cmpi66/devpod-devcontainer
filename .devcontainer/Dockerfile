@@ -23,6 +23,9 @@ RUN mkdir -p /etc/zsh \
 RUN mkdir -p /go/pkg/mod /home/vscode/.cache/go-build \
  && chown -R vscode:vscode /go /home/vscode/.cache
 
+# Ensure mise volume mountpoint ownership
+RUN mkdir -p /home/vscode/.local/share/mise \
+ && chown -R vscode:vscode /home/vscode/.local/share/mise
 
 COPY scripts/setup /usr/local/bin/devcontainer-setup
 RUN chmod +x /usr/local/bin/devcontainer-setup
