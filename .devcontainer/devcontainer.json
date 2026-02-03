@@ -1,8 +1,6 @@
 {
   "build": { "context": "..", "dockerfile": "Dockerfile" },
   "remoteUser": "vscode",
-  "containerUser": "vscode",
-  "updateRemoteUserUID": true,
 
   "containerEnv": {
     "SHELL": "/usr/bin/zsh",
@@ -10,9 +8,6 @@
 
     "GITHUB_TOKEN": "${localEnv:GITHUB_TOKEN}",
 
-    "MISE_DATA_DIR": "/home/vscode/.local/share/mise",
-    "MISE_CACHE_DIR": "/home/vscode/.cache/mise",
-    "MISE_STATE_DIR": "/home/vscode/.local/state/mise",
 
     "PIP_CACHE_DIR": "/home/vscode/.cache/pip",
 
@@ -22,9 +17,6 @@
   },
 
   "mounts": [
-    "source=devpod-mise-data,target=/home/vscode/.local/share/mise,type=volume",
-    "source=devpod-mise-cache,target=/home/vscode/.cache/mise,type=volume",
-    "source=devpod-mise-state,target=/home/vscode/.local/state/mise,type=volume",
 
     "source=devpod-pip-cache,target=/home/vscode/.cache/pip,type=volume",
 
