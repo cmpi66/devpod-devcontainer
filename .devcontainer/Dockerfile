@@ -2,14 +2,28 @@ FROM mcr.microsoft.com/devcontainers/base:ubuntu-24.04
 
 RUN apt-get update \
  && apt-get install -y --no-install-recommends \
-    stow git ca-certificates \
-    build-essential pkg-config \
-    zsh fzf \
-    iptables ipset iproute2 dnsutils \
-    zoxide eza \
-    curl unzip xz-utils zip jq \
-    python3-pip python3-venv \
+    stow \
+    git \
+    ca-certificates \
+    build-essential \
+    pkg-config \
+    zsh \
+    fzf \
+    iptables \
+    ipset \
+    iproute2 \
+    dnsutils \
+    zoxide \
+    eza \
+    curl \
+    unzip \
+    xz-utils \
+    zip \
+    jq \
+    python3-pip \
+    python3-venv \
  && rm -rf /var/lib/apt/lists/*
+# ENV PATH="/usr/bin:/bin:/usr/local/bin:${PATH}"
 
 COPY --from=jdxcode/mise /usr/local/bin/mise /usr/local/bin/
 
