@@ -2,6 +2,7 @@
 bat = "latest"
 lsd = "latest"
 ripgrep = "latest"
+fd = "latest"
 node = "25"
 python = "3.12"
 go = "1.25"
