@@ -23,26 +23,12 @@ RUN apt-get update \
     python3-pip \
     python3-venv \
  && rm -rf /var/lib/apt/lists/*
-# ENV PATH="/usr/bin:/bin:/usr/local/bin:${PATH}"
 
 COPY --from=jdxcode/mise /usr/local/bin/mise /usr/local/bin/
 
 # System-wide ZDOTDIR (you already want this)
 RUN mkdir -p /etc/zsh \
  && printf '%s\n' 'export ZDOTDIR="$HOME/.config/zsh"' > /etc/zsh/zshenv
-
-# RUN mkdir -p /home/vscode/.cache \
-#  && chown -R vscode:vscode /home/vscode/.cache
- # Go workspace + caches
-# RUN mkdir -p /go/pkg/mod /home/vscode/.cache/go-build \
-#  && chown -R vscode:vscode /go /home/vscode/.cache
-
-# Ensure mise volume mountpoint ownership
-# RUN mkdir -p /home/vscode/.local/share/mise \
-#  && chown -R vscode:vscode /home/vscode/.local/share/mise
- 
- # RUN mkdir -p /home/vscode/.local/share \
- # && chown -R vscode:vscode /home/vscode/.local/share
 
 RUN mkdir -p \
     /home/vscode/.cache \
@@ -51,9 +37,6 @@ RUN mkdir -p \
     /home/vscode/.config \
  && chown -R vscode:vscode /home/vscode/.cache /home/vscode/.local /home/vscode/.config
 
-
 COPY scripts/setup /usr/local/bin/devcontainer-setup
 RUN chmod +x /usr/local/bin/devcontainer-setup
-RUN echo 'eval "$(mise activate bash)"' >> /home/vscode/.bashrc \
- && echo 'eval "$(mise activate zsh)"'  >> /home/vscode/.zshrc
 

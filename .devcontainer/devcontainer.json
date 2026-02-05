@@ -3,7 +3,6 @@
   "remoteUser": "vscode",
 
   "containerEnv": {
-    "SHELL": "/usr/bin/zsh",
     "DEVCONTAINER": "1",
 
     "GITHUB_TOKEN": "${localEnv:GITHUB_TOKEN}",
