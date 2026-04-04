@@ -2,13 +2,11 @@ FROM mcr.microsoft.com/devcontainers/base:ubuntu-24.04
 
 RUN apt-get update \
  && apt-get install -y --no-install-recommends \
-    stow \
     git \
     ca-certificates \
     build-essential \
     pkg-config \
     zsh \
-    fzf \
     iptables \
     ipset \
     iproute2 \
