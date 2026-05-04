@@ -11,15 +11,12 @@ RUN apt-get update \
     ipset \
     iproute2 \
     dnsutils \
-    zoxide \
-    eza \
     curl \
     unzip \
     xz-utils \
     zip \
-    jq \
-    python3-pip \
-    python3-venv \
+    vim \
+    file \
  && rm -rf /var/lib/apt/lists/*
 
 COPY --from=jdxcode/mise /usr/local/bin/mise /usr/local/bin/
